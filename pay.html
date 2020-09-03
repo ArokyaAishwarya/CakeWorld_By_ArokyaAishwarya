@@ -1,0 +1,223 @@
+<html>
+    <head>
+        <title>HOME</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style type="text/css">
+	
+	    *{
+	    	padding: 0px;
+	    	margin: 0px;
+
+	    }
+      
+     .head{
+     	background: white;
+     	color:RGB(225,66,0);
+     	padding: 10px 70px;
+     	font-family: sans-serif;
+     	font-size: 30px;
+     	border-top:10px solid rgb(250, 0, 141) ;	
+     }
+
+ body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+hr.new5 {
+  border: 10px solid rgb(250, 0, 141);
+  border-radius: 5px;
+}
+
+
+.page-container{
+    height: 100vh;
+    display: flex;
+    top:5%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-container{
+    margin-top: 1%;
+    height: 80%;
+    width:49.44%;
+    box-shadow: 0px 0px 73px #050505;
+    
+}
+
+.form-header{
+
+    width: 100%;
+    background: white;
+    display: block;
+    padding-top: 2px;
+    
+    
+    
+}
+
+.dark-side{
+    width: 37px;
+    height: 37px;
+    /* margin-top: -41px; */
+    margin-left: -37px;
+
+   
+}
+
+
+.form-body{
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.form-body > input{
+    margin: 10px;
+}
+
+input[type="text"],input[type="password"]{
+    padding: 9px;
+    border: none;
+    /* border-radius: 4px; */
+    border:none;
+    background: transparent;
+   box-shadow: 0 0 2px #1b083d;
+ font-family: inherit;
+   border-radius:14px;
+}
+
+input[type="text"]:focus,input[type="password"]:focus{
+    outline: #673AB7;
+    box-shadow: 1px 0px 2px #c61951
+ 
+
+}
+
+
+input[type="submit"]{
+  background: #1b083d;
+ 
+  
+  font-size: 20pt;
+  padding: 12px;
+
+   font-family: Montserrat;
+    color:#f8f7aa;
+}
+
+
+
+.forg-pwd{
+    color:#1b083d;
+    align-self: center;
+    padding: 11px;
+    font-size:9pt;
+    cursor: pointer;
+}
+
+
+
+
+
+
+@media (max-width:768px){
+    .login-container{
+      
+        width:80%;
+        
+    }
+    .login-txt{
+        font-size: 24pt;
+    }
+
+	</style>
+
+    </head>
+  
+      
+
+<body>
+	<div class="head">
+		<h1>CAKE WORLD - PAYMENT MODE </h1>
+	</div>
+<hr class="new5">
+<div id="bg">
+        
+    </div>
+    <div class="page-container">
+        <div class="login-container">
+            <div class="form-header">
+                
+                <div class="login-txt">
+                
+                </div> 
+                <div class="dark-side">
+
+                </div>  
+            </div>
+
+           
+            <form action="endpage"  name="orderForm" method="POST"  onsubmit="return order()" >
+                    <div class="form-body">
+                         
+                        <input type="text" name="cardname" id="name" placeholder="Your Name On Card..??? " >
+                         <input type="text" name="cardno" id="card" placeholder="Your Card Number..??? ">
+                         <input type="text" name="cvv" id="cvv" placeholder="Your CVV Number..??? ">
+                          
+                          
+                     <input type="submit" name="send" onsubmit="return order()" value="PAY" >
+                       
+ <input type="submit" name="send"  value="VIEW" >
+                       
+              
+                    </div>
+
+         </div>
+    </div>
+   </form>
+            
+ <script> 
+
+ 
+ function order(){
+     
+     var Name=document.getElementById('name').value;
+   var NameRGEX =/^[A-Z]{1}[a-z]{6}$/;
+  var NameResult = NameRGEX.test(Name);
+
+  var cardNumber = document.getElementById('card').value;
+  var cardRGEX =/^\(?([0-9]{4})\)?[-]?([0-9]{4})[-]?([0-9]{4})[-]?([0-9]{4})$/;
+  var cardResult = cardRGEX.test(cardNumber);
+  
+  var cvv= document.getElementById('cvv').value;      
+var cvvRGEX = /^6\d{2}$/;  
+  var cvvResult = cvvRGEX.test(cvv);
+  
+ 
+ 
+if(NameResult == false)
+{
+alert('NAME SHOULD START WITH UPPERCASE AND MUST BE FOLLOWED BY 5 CHARACTERS IN LENGTH..!!');
+return false;
+}
+if(cardResult == false)
+{
+   alert('Oooops...!!! PLEASE ENTER THE VALID CARD NUMBER LIKE ( 1111-2222-3333-4444 ) ...!!!');
+return false;
+}
+ 
+if(cvvResult == false)
+{
+alert('CVV NUMBER MUST START WITH 6 FOLLOWED BY 2 NUMBERS...!!');
+return false;
+}
+  return true;
+}
+
+</script> 
+
+        </body>
+        </html>
